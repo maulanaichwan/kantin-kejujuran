@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SocialMedia from './SocialMedia';
 import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/outline'
 import Image from 'next/image';
 import addToCartImg from '../../public/undraw_add_to_cart_re_wrdo1.svg';
@@ -35,19 +36,21 @@ const Slider = () => {
     ]
   return (
     <section className='slider'>
+        <SocialMedia />
+
         <div className='slides-information'>
             {slides && slides.map((slide, id) => (
                 <div className={`slide-information ${indexSlide == slide.id ? '' : 'hidden'}`} key={id}>
                     <div className='slide-image'>
-                        <Image src={slide.image} alt={slide.text} objectFit='contain' height={'500'}/>
+                        <Image src={slide.image} alt={slide.text} objectFit='contain'/>
                     </div>
                     <h2 className='slide-text'>{slide.text}</h2>
                 </div>
             ))}
         </div>
         <div className='slider-nav'>
-            <ChevronLeftIcon className='arrow-left-slider' onClick={handlePrev}/> 
-            <h3>{indexSlide}</h3>  
+            <ChevronLeftIcon className='arrow-left-slider' onClick={handlePrev} /> 
+            <h3>{indexSlide}</h3> 
             <ChevronRightIcon className='arrow-right-slider' onClick={handleNext} />
         </div>
     </section>

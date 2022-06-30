@@ -35,17 +35,35 @@
   h4 {
     @apply text-base md:text-lg;
   }
+
+  .icons {
+    @apply w-5 h-5 text-base mx-1;
+  }
 };
 
 @layer components {
   /* app layout */
   .app-layout {
-    @apply flex flex-col justify-between min-h-screen;
+    @apply flex flex-col justify-between min-h-full;
   }
 
   /* nav styles */
   .navbar {
     @apply hidden md:flex flex-row justify-between items-center;
+  }
+
+  .nav-item {
+    @apply font-semibold
+  }
+
+  .nav-item::after {
+    @apply block w-0 bg-base transition-all duration-300;
+    content:'';
+    height: 2px
+  }
+
+  .nav-item:hover::after {
+    @apply w-full;
   }
 
   .mobile-nav {
@@ -61,38 +79,56 @@
   }
 
   .pages-links {
-    @apply bg-base absolute right-0 top-0 hidden flex-col justify-center space-y-8 px-4;
-    height: 100vh;
+    @apply bg-base absolute right-0 top-0 hidden flex-col py-36 space-y-8 px-4 z-40 min-h-screen rounded-md;
     width: 40vw;
   }
 
-  .item-nav {
+  .nav-mobile-item {
     @apply z-50 text-primary text-center;
   }
 
   /* slider */
+  /* social media */
+  .social-media-wrapper {
+    @apply flex flex-row md:flex-col md:space-y-4 mt-12 order-last md:order-first;
+  }
+
+  .social-media-icons {
+    @apply mx-4 w-8 h-8 p-1
+  }
+
+  .social-media-icons:hover {
+    @apply rounded bg-secondary
+  }
+
+  /* --- */
   .slider {
-    @apply flex flex-col md:flex-row justify-center md:justify-between my-8 items-center space-y-8;
+    @apply flex flex-col md:flex-row justify-center md:justify-between my-8 space-y-12 align-top items-center;
   }
 
   .slider-nav {
-    @apply flex flex-row space-x-4 font-bold;
+    @apply flex flex-row md:flex-col md:align-middle md:text-center space-x-4 md:space-x-0 md:space-y-4 font-bold;
   }
 
   .arrow-left-slider, .arrow-right-slider{
-    @apply rounded-full p-2 w-8 h-8 bg-tertiandry/60;
+    @apply rounded-full p-2 w-8 h-8 bg-tertiandry/60 md:rotate-90 md:text-center;
+  }
+
+  .arrow-left-slider:hover, .arrow-right-slider:hover{
+    @apply bg-secondary/80;
   }
 
   .slides-information {
-    @apply mx-4;
+    @apply mx-4 h-[60vh];
   }
 
   .slide-information {
-    @apply relative object-contain z-0 space-y-4 h-[80vw];
+    @apply relative object-contain z-0 space-y-4;
   }
 
   .slide-image {
-    z-index: -1 !important;
+    @apply relative w-[50vw] md:w-[30vw];
+    z-index: -999 !important;
   }
 
   .slide-text {
@@ -100,6 +136,9 @@
   }
 
   /* footer */
+  .footer {
+    @apply flex flex-row justify-center items-center;
+  }
 };
 
 @layer utilities {

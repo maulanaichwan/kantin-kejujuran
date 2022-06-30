@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { MenuIcon } from '@heroicons/react/outline'
-
+import {XIcon} from '@heroicons/react/outline'
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -10,17 +10,17 @@ const Navbar = () => {
     <>
     {/* nav */}
       <nav className='navbar'>
-          <Link href="/jajanan">
+          <span className='nav-item'><Link href="/jajanan">
               Jajanan
-          </Link>
+          </Link></span>
           
           <h1><Link href="/">
               kantin kejujuran
           </Link></h1>
 
-          <Link href="/login">
+          <span className='nav-item'><Link href="/login" className='nav-item'>
               log in
-          </Link>
+          </Link></span>
       </nav>
 
     {/* mobile nav */}
@@ -31,17 +31,20 @@ const Navbar = () => {
               kantin kejujuran
             </Link>
           </h1>
-          <MenuIcon className={`menu ${isMenuOpen ? 'text-primary' : 'text-base'}`}aria-controls='mobile-menu' type='button' onClick={() => setMenuOpen(!isMenuOpen)}/>
+          { isMenuOpen ? 
+            <XIcon className='menu text-primary' aria-controls='mobile-menu' type='button' onClick={() => setMenuOpen(!isMenuOpen)}/> :
+            <MenuIcon className='menu' aria-controls='mobile-menu' type='button' onClick={() => setMenuOpen(!isMenuOpen)}/>
+          }
         </div>
 
         <div className={`pages-links ${isMenuOpen ? 'flex' : 'hidden'}`}>         
-          <h4 className="item-nav">
+          <h4 className="nav-mobile-item">
             <Link href="/jajanan">
                 Jajanan
             </Link>
           </h4>
 
-          <h4 className="item-nav">
+          <h4 className="nav-mobile-item">
             <Link href="/login">
               log in
             </Link>
