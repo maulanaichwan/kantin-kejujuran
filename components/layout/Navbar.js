@@ -1,16 +1,18 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { MenuIcon } from '@heroicons/react/outline'
 import {XIcon} from '@heroicons/react/outline'
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <>
     {/* nav */}
       <nav className='navbar'>
-          <span className='nav-item'><Link href="/jajanan">
+          <span className={`nav-item ${router.pathname == '/jajanan'? 'active' : ''}`}><Link href="/jajanan">
               Jajanan
           </Link></span>
           
@@ -18,7 +20,7 @@ const Navbar = () => {
               kantin kejujuran
           </Link></h1>
 
-          <span className='nav-item'><Link href="/login" className='nav-item'>
+          <span className={`nav-item ${router.pathname == '/login'? 'active' : ''}`}><Link href="/login" className='nav-item'>
               log in
           </Link></span>
       </nav>

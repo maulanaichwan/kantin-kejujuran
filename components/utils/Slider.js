@@ -42,7 +42,7 @@ const Slider = () => {
             {slides && slides.map((slide, id) => (
                 <div className={`slide-information ${indexSlide == slide.id ? '' : 'hidden'}`} key={id}>
                     <div className='slide-image'>
-                        <Image src={slide.image} alt={slide.text} objectFit='contain'/>
+                        <Image src={slide.image} alt={slide.text} layout='fill' objectFit='contain' className={'image-in-slider'} />
                     </div>
                     <h2 className='slide-text'>{slide.text}</h2>
                 </div>

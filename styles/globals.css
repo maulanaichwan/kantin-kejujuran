@@ -62,6 +62,12 @@
     height: 2px
   }
 
+  .active::after {
+    @apply block w-full bg-base transition-all duration-300;
+    content:'';
+    height: 2px
+  }
+
   .nav-item:hover::after {
     @apply w-full;
   }
@@ -119,20 +125,37 @@
   }
 
   .slides-information {
-    @apply mx-4 h-[60vh];
+    @apply mx-4 w-3/5;
   }
 
   .slide-information {
-    @apply relative object-contain z-0 space-y-4;
+    @apply relative z-0 space-y-4;
   }
 
   .slide-image {
-    @apply relative w-[50vw] md:w-[30vw];
+    @apply relative w-full h-[40vh];
     z-index: -999 !important;
+  }
+
+  .image-in-slider {
+    @apply w-full;
   }
 
   .slide-text {
     @apply uppercase text-center;
+  }
+
+  /* jajanan */
+  .wallet-wrapper {
+    @apply flex flex-row justify-center space-x-2 items-center;
+  }
+
+  .wallet-icons {
+    @apply relative w-10 h-10 cursor-pointer;
+  }
+
+  .add-icons, .cash-out-icons {
+    @apply w-8 h-8 cursor-pointer;
   }
 
   /* footer */
