@@ -7,11 +7,11 @@ const Wallet = () => {
   return (
     <div className='wallet-wrapper'>
         <div className='wallet-icons'>
-            <Image src={walletIcon} alt="wallet-icons" objectFit='contain' layout='fill'/>
+            <Image src={walletIcon} alt="wallet-icons" objectFit='contain' layout='fill' />
         </div>
         <h2 className='wallet-text'>Rp400.000</h2>
-        <PlusSmIcon className='add-icons'/>
-        <CashIcon className='cash-out-icons'/> 
+        <PlusSmIcon className='add-icons' />
+        <CashIcon className='cash-out-icons' /> 
     </div>
   )
 }

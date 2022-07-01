@@ -1,15 +1,24 @@
 import React from 'react'
 import AppLayout from '../components/layout/AppLayout'
 import Wallet from '../components/features/Wallet'
-import Products from '../components/features/Products'
+import Snacks from '../components/features/Snacks'
+import { client } from '../lib/client'
 
-const jajanan = () => {
+const jajanan = ({ SnacksData }) => {
   return (
     <AppLayout>
         <Wallet />
-        <Products />
+        <Snacks data={SnacksData}/>
     </AppLayout>
   )
+}
+
+export const getServerSideProps = async() => {
+  const query = `*[_type == "snacks"]`;
+  const SnacksData = await client.fetch(query);
+  return {
+    props: { SnacksData }
+  }
 }
 
 export default jajanan
