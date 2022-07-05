@@ -13,7 +13,7 @@ module.exports = {
       'primary': '#6D8B74',
       'secondary': '#5F7161',
       'tertiandry': '#919194',
-      'base': '#FFFFFF',
+      'white': '#FFFFFF',
     },
     extend: {},
   },

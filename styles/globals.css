@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer base {
   html,
@@ -10,7 +9,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
-    @apply bg-primary text-base px-4 md:px-8 py-4;
+    @apply bg-primary text-white px-4 md:px-8 py-4;
   }
 
   a {
@@ -33,11 +32,11 @@
     @apply text-lg md:text-xl;
   }
   h4 {
-    @apply text-base md:text-lg;
+    @apply text-white md:text-lg;
   }
 
   .icons {
-    @apply w-5 h-5 text-base mx-1;
+    @apply w-5 h-5 text-white mx-1;
   }
 };
 
@@ -61,13 +60,13 @@
   }
 
   .nav-item::after {
-    @apply block w-0 bg-base transition-all duration-300;
+    @apply block w-0 bg-white transition-all duration-300;
     content:'';
     height: 2px
   }
 
   .active::after {
-    @apply block w-full bg-base transition-all duration-300;
+    @apply block w-full bg-white transition-all duration-300;
     content:'';
     height: 2px
   }
@@ -85,11 +84,11 @@
   }
 
   .menu {
-    @apply h-8 w-8 text-base cursor-pointer relative ml-auto z-50;
+    @apply h-8 w-8 text-white cursor-pointer relative ml-auto z-50;
   }
 
   .pages-links {
-    @apply bg-base absolute right-0 top-0 hidden flex-col py-36 space-y-8 px-4 z-40 min-h-screen rounded-md;
+    @apply bg-white absolute right-0 top-0 hidden flex-col py-36 space-y-8 px-4 z-40 min-h-screen rounded-md;
     width: 40vw;
   }
 
@@ -158,13 +157,62 @@
     @apply relative w-10 h-10 cursor-pointer;
   }
 
-  .add-icons, .cash-out-icons, .descending-icons {
-    @apply w-8 h-8 cursor-pointer;
+  /* snacks */
+  .snacksData-container {
+    @apply flex flex-col;
+  }
+  .add-icons, .cash-out-icons, .sort-icons {
+    @apply w-8 h-8 p-0.5 cursor-pointer hover:bg-secondary/80 rounded-full;
   }
 
   .sorting-item {
-    @apply flex flex-row space-x-2;
+    @apply flex flex-row space-x-2 items-center overflow-visible mx-auto md:mx-0;
   }
+  /* lists sort option */
+  .listsort-wrapper {
+    @apply relative z-10;
+  }
+  .listsort-button {
+      @apply relative w-full cursor-default rounded-lg border bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-secondary/80 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary/30 text-sm md:text-base;
+  }
+  .listsort-icons-wrapper {
+      @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2
+  }
+  .selectorsort-icons, .check-icon {
+      @apply h-5 w-5 text-secondary;
+  }
+  .listsort-options {
+      @apply absolute mt-1 max-h-60 w-full rounded-md bg-white text-white shadow-lg ring-1 ring-secondary/5 focus:outline-none text-sm md:text-base md:text-white overflow-y-visible;
+  }
+  .listsort-option {
+      @apply flex flex-row cursor-default select-none py-2 pl-2 pr-2 z-10;
+  }
+  .sort-name {
+    @apply block truncate text-secondary;
+  }
+  .check-icon-wrapper {
+      @apply relative inset-y-0 flex items-center pr-1 text-secondary/60;
+  }
+  /* snacks */
+  .snacks-container {
+    @apply grid grid-cols-2 md:grid-cols-4 justify-items-stretch my-8;
+  }
+  .snack-item-container {
+    @apply grid justify-items-center m-4;
+  }
+  .snack-details-container {
+    @apply grid grid-cols-2 justify-between auto-cols-min w-full;
+  }
+  .snack-name, .snack-price {
+    @apply font-semibold text-white capitalize text-base lg:text-xl;
+  }
+  .snack-price {
+    @apply text-right;
+  }
+  .snack-createdAt {
+    @apply text-sm text-white/80;
+  }
+
 
   /* footer */
   .footer {

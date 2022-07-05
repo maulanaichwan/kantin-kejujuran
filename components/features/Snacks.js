@@ -1,23 +1,31 @@
-import React from 'react'
-import { SortDescendingIcon } from '@heroicons/react/outline'
+import React, { useState } from 'react'
+import { SortDescendingIcon, SortAscendingIcon } from '@heroicons/react/outline'
 import ListSortOption from '../utils/ListSortOption';
+import Snack from './Snack'
 
-const Products = ({ data }) => {
-    console.log(data)
+const Snacks = ({ data }) => {
+    const [sortAsc, setSortAsc] = useState(false);
+    const handleClickSortIcons = () => {
+        setSortAsc(!sortAsc);
+    }
     return (
         <div className='snacksData-container'>
             <span className='sorting-item'>
-                <SortDescendingIcon className='descending-icons'/>
+                {sortAsc ? (
+                    <SortAscendingIcon className='sort-icons' onClick={handleClickSortIcons}/>
+                ) : (
+                    <SortDescendingIcon className='sort-icons' onClick={handleClickSortIcons}/>
+                )
+            }
                 <ListSortOption className=''/>
             </span>
-            {data?.map((snack) => (
-                <div className='snack-container'>
-                    <p>{snack.name}</p>
-                    <p>{snack.price}</p>
-                </div>
-            ))}
+            <div className='snacks-container'>
+                {data?.map((snack) => (
+                    <Snack snack={snack} key={snack._id}/>
+                ))}
+            </div>
         </div>
   )
 }
 
-export default Products
+export default Snacks
