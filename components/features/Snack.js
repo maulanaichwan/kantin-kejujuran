@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {urlFor} from '../../lib/client'; 
 
 const Snack = ({ snack: { image, name, slug, price, _createdAt } }) => {
-   const optionsDate = {
+    const optionsDate = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'

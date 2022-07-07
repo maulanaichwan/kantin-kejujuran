@@ -8,7 +8,7 @@ const jajanan = ({ SnacksData }) => {
   return (
     <AppLayout>
         <Wallet />
-        <Snacks data={SnacksData} />
+        <Snacks data={SnacksData}/>
     </AppLayout>
   )
 }

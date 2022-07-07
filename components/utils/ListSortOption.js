@@ -2,23 +2,17 @@ import { useState } from 'react'
 import { Listbox } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-const sortByOption = [
-  { id: 1, name: 'Sort by Product Name' },
-  { id: 2, name: 'Sort by Created time' },
-]
-
-const ListSortOptions = () => {
-  const [selectedSortby, setSelectedSortby] = useState(sortByOption[0]);
+const ListSortOptions = ({ sortOption, setSortOption, allSortOptions }) => {
   return (
-    <Listbox value={selectedSortby} onChange={setSelectedSortby}>
+    <Listbox value={sortOption} onChange={setSortOption}>
       {({ open }) => (
         <div className='listsort-wrapper'>
           <Listbox.Button className="listsort-button">
-            <span className='sort-name'>{selectedSortby.name}</span>
+            <span className='sort-name'>{sortOption.name}</span>
             <span className='listsort-icons-wrapper'><SelectorIcon className='selectorsort-icons'/></span>
           </Listbox.Button>
           <Listbox.Options className="listsort-options">
-            {sortByOption.map((option) => (
+            {allSortOptions.map((option) => (
               <Listbox.Option 
                 key={option.id} 
                 value={option}
@@ -26,7 +20,6 @@ const ListSortOptions = () => {
                 {({ selected, active }) => (
                   <div className={`listsort-option ${ active ? 'bg-tertiandry/20 text-white' : 'text-primary'}`
                 }>
-                    { console.log(selected, active) }
                     { selected && (
                       <span className={`check-icon-wrapper ${active ? 'text-primary' : 'text-white'}`}>
                         <CheckIcon className='check-icon' />

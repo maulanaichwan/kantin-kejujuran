@@ -41,5 +41,35 @@ export default {
                 timeFormat: "hh:mm"
             }
         }
+    ],
+    orderings: [
+        {
+            name: 'snacksNameDesc',
+            title: 'Snacks Name, A - Z',
+            by: [
+                {field: 'name', direction: 'desc'}
+            ]
+        },
+        {
+            name: 'snacksNameAsc',
+            title: 'Snacks Name, Z - A',
+            by: [
+                {field: 'name', direction: 'asc'}
+            ]
+        },
+        {
+            name: 'createdAtDesc',
+            title: 'Created At, New',
+            by: [
+                {field: 'created_at', direction: 'desc'}
+            ]
+        },
+        {
+            name: 'createdAtAsc',
+            title: 'Created At, Old',
+            by: [
+                {field: 'created_at', direction: 'asc'}
+            ]
+        },
     ]
 }
